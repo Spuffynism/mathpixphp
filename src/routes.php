@@ -16,6 +16,7 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $container = $app->getContainer();
 $container['upload_directory'] = __DIR__ . '/uploads';
 
+
 $app->post('/', function (Request $request, Response $response) {
     $this->logger->info("'/' file uploaded");
 

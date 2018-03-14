@@ -4,6 +4,9 @@
         <meta charset="utf-8"/>
         <title>Slim 3</title>
         <link href='//fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
         <style>
             body {
                 margin: 50px 0 0 0;
@@ -11,12 +14,12 @@
                 width: 100%;
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 text-align: center;
-                color: #aaa;
+                color: #666;
                 font-size: 18px;
             }
 
             h1 {
-                color: #719e40;
+                color: #007bff;
                 letter-spacing: -3px;
                 font-family: 'Lato', sans-serif;
                 font-size: 100px;
@@ -26,11 +29,35 @@
         </style>
     </head>
     <body>
-        <h1>Mathpix Demo</h1>
-
-        <form method="post" enctype="multipart/form-data">
-            Select image to translate<br>
-            <input type="file" name="image" id="image"><br>
-            <input type="submit" value="Upload" name="submit"/>
+        <div class="container">
+            <h1>Mathpix Demo</h1>
+            <div class="row">
+                <div class="col-sm"></div>
+                <div class="col-sm">
+                    <?php if(!empty($latex)): ?>
+                        <br>
+                        <p>Result:</p>
+                        <code><?=$latex?></code>
+                        <br>
+                        <br>
+                    <?php endif; ?>
+                    <?php if(!empty($error)): ?>
+                        <br>
+                        <p>Result:</p>
+                        <code><?= $error ?></code>
+                        <br>
+                        <br>
+                    <?php endif; ?>
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="image">Select image to translate</label>
+                            <input type="file" name="image" id="image" class="form-control"><br>
+                            <button type="submit" name="submit" class="btn btn-outline-primary">Translate to latex</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm"></div>
+            </div>
+        </div>
     </body>
 </html>

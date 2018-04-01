@@ -66,20 +66,3 @@ function translateToLatex(UploadedFile $image)
 	
     return ['latex' => $latex, 'error' => $error];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

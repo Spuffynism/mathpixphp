@@ -56,7 +56,30 @@ function translateToLatex(UploadedFile $image)
     $result = $api->post("latex",
         '{"src": "data:image/jpeg;base64,' . $fileContents . '" }');
 
-    $response = json_decode($result->response);
-
-    return ['latex' => $response->latex, 'error' => $response->error];
+	$response = $result->response;
+	$latex = [];
+	$error = [];
+	if (!empty($response))
+		$latex = json_decode($response)->latex;
+	else
+		$error = $result->error;
+	
+    return ['latex' => $latex, 'error' => $error];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
